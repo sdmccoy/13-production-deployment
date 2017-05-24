@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const conString = 'postgres://postgres:dingodb@localhost:5432/kilovolt';
 // const conString = ''; // DONE TODO: Don't forget to set your own conString
-const client = new pg.Client(conString);
+const client = new pg.Client(DATABASE_URL || conString);
 client.connect();
 client.on('error', err => console.error(err));
 
